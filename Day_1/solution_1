@@ -1,4 +1,4 @@
-file = open('day_1.txt')
+file = open('text.txt')
 elves = [0]
 
 while True:
