@@ -1,0 +1,21 @@
+alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+duplicate_chars = []
+total_sum = 0
+ 
+with open("text", "r") as input_data:
+    for line in input_data:
+        half = len(line) // 2
+        first_half = line[:half]
+        second_half = line[half:]
+ 
+        temporary_chars = []
+        for ch in first_half:
+            if ch in second_half and ch not in temporary_chars:
+                temporary_chars.append(ch)
+ 
+        duplicate_chars.extend(temporary_chars)
+ 
+for ch in duplicate_chars:
+    total_sum += alphabet.index(ch) + 1
+ 
+print(total_sum)
