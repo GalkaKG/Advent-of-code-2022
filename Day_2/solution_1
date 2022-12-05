@@ -1,0 +1,29 @@
+my_sum = 0
+
+#  Elf -> A - Rock, B - Peper, C - Scissor
+
+with open("input_data.txt", "r") as file:
+    for line in file.readlines():
+
+        if line[2] == 'Y':   # rock
+            my_sum += 2
+            if line[0] == 'A':
+                my_sum += 6
+            elif line[0] == 'B':
+                my_sum += 3
+
+        elif line[2] == 'X':  # peper
+            my_sum += 1
+            if line[0] == 'C':
+                my_sum += 6
+            elif line[0] == 'A':
+                my_sum += 3
+
+        elif line[2] == 'Z':   # scissor
+            my_sum += 3
+            if line[0] == 'C':
+                my_sum += 3
+            elif line[0] == 'B':
+                my_sum += 6
+
+print(my_sum)
