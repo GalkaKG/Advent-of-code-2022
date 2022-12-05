@@ -1,0 +1,16 @@
+counter = 0
+ 
+with open("text.txt", "r") as input_data:
+    for line in input_data:
+        line = line.strip("\n")
+        first_pair, second_pair = line.split(",")
+        first_num1, second_num1 = first_pair.split("-")
+        first_num2, second_num2 = second_pair.split("-")
+        first_range = [i for i in range(int(first_num1), int(second_num1) + 1)]
+        second_range = [i for i in range(int(first_num2), int(second_num2) + 1)]
+        for num in first_range:
+            if num in second_range:
+                counter += 1
+                break
+ 
+print(counter)
