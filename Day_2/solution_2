@@ -1,0 +1,17 @@
+combination_rock_A = {"Y": 4, "X": 3, "Z": 8}
+combination_paper_B = {"Y": 5, "X": 1, "Z": 9}
+combination_scissor_C = {"Y": 6, "X": 2, "Z": 7}
+
+my_sum = 0
+
+with open("input_data.txt", "r") as file:
+    for line in file.readlines():
+        my_char = line[2]
+        if line[0] == "A":
+            my_sum += combination_rock_A[my_char]
+        elif line[0] == "B":
+            my_sum += combination_paper_B[my_char]
+        elif line[0] == 'C':
+            my_sum += combination_scissor_C[my_char]
+
+print(my_sum)
