@@ -1,0 +1,35 @@
+stack1 = ['F', 'R', 'W']
+stack2 = ['P', 'W', 'V', 'D', 'C', 'M', 'H', 'T']
+stack3 = ['L', 'N', 'Z', 'M', 'P']
+stack4 = ['R', 'H', 'C', 'J']
+stack5 = ['B', 'T', 'Q', 'H', 'G', 'P', 'C']
+stack6 = ['Z', 'F', 'L', 'W', 'C', 'G']
+stack7 = ['C', 'G', 'J', 'Z', 'Q', 'L', 'V', 'W']
+stack8 = ['C', 'V', 'T', 'W', 'F', 'R', 'N', 'P']
+stack9 = ['V', 'S', 'R', 'G', 'H', 'W', 'J']
+list_of_stacks = [stack1, stack2, stack3, stack4, stack5, stack6, stack7, stack8, stack9]
+with open("text.txt", "r") as file:
+    for line in file:
+        line = line.strip('\n').split()
+        if line and line[0] == 'move':
+            count_to_move = int(line[1])
+            move_from = int(line[3])
+            move_to = int(line[5])
+        else:
+            continue
+ 
+        stack = list_of_stacks[move_from - 1]
+        stack_where_to_move = list_of_stacks[move_to - 1]
+ 
+        while count_to_move:
+            if count_to_move > 0 and not stack:
+                count_to_move = 0
+                break
+ 
+            stack_where_to_move.insert(0, (stack.pop(0)))
+            count_to_move -= 1
+ 
+ 
+result = f'{stack1[0]}{stack2[0]}{stack3[0]}{stack4[0]}{stack5[0]}{stack6[0]}{stack7[0]}{stack8[0]}{stack9[0]}'
+ 
+print(result)
