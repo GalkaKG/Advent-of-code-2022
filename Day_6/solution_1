@@ -1,0 +1,19 @@
+is_found_marker = False
+start_idx = 0
+end_idx = 4
+
+with open("text.txt", "r") as file:
+    for line in file:
+        while not is_found_marker:
+            for ch in line:
+                if len(set(line[start_idx:end_idx])) == 4:
+                    is_found_marker = True
+                    idx_marker = end_idx
+                    break
+                else:
+                    start_idx += 1
+                    end_idx += 1
+                    break
+
+result = len(line[:end_idx])
+print(result)
